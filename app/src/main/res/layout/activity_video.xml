@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <Button
+        android:id="@+id/videobutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="28dp"
+        android:text="首页"
+        android:textSize="20sp"
+        android:background="@color/blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/videobutton2"
+        android:layout_width="102dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="40dp"
+        android:text="视频"
+        android:textSize="20sp"
+        android:background="@color/blue"
+        app:layout_constraintBottom_toBottomOf="@+id/videobutton"
+        app:layout_constraintStart_toEndOf="@+id/videobutton"
+        app:layout_constraintTop_toTopOf="@+id/videobutton"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/videobutton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:text="关于APP"
+        android:textSize="20sp"
+        android:background="@color/blue"
+        app:layout_constraintBottom_toBottomOf="@+id/videobutton2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/videobutton2"
+        app:layout_constraintTop_toTopOf="@+id/videobutton2"
+        app:layout_constraintVertical_bias="1.0" />
+
+<!--    <VideoView-->
+<!--        android:id="@+id/videoView"-->
+<!--        android:layout_width="284dp"-->
+<!--        android:layout_height="380dp"-->
+<!--        android:layout_marginTop="92dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.497"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView3"
+        android:layout_width="391dp"
+        android:layout_height="627dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

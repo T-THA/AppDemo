@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>番剧推荐.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%E7%95%AA%E5%89%A7%E6%8E%A8%E8%8D%9020221-20231">番剧推荐（2022.1-2023.1）</h1>
+<p>列出的都是当时有追的番，有些没看的就没写。仅代表个人意见。</p>
+<h2 id="%E7%9C%81%E6%B5%81">省流</h2>
+<ul>
+<li>U149</li>
+<li>孤独摇滚</li>
+<li>街角魔族 2</li>
+<li>别当欧尼酱了！</li>
+<li>秋叶原冥途战争</li>
+<li>异世界舅舅</li>
+<li>夏日重现</li>
+<li>古见 2</li>
+<li>辉告 3</li>
+<li>派对浪客诸葛孔明</li>
+<li>与变成了异世界美少女的大叔一起冒险</li>
+<li>转生王女与天才千金的魔法革命</li>
+<li>放学后失眠的你</li>
+<li>恋爱flops</li>
+<li>我心里危险的东西</li>
+<li>测不准的阿波连同学</li>
+<li>契约之吻</li>
+<li>莉可丽丝</li>
+<li>SHINEPOST</li>
+<li>相合之物</li>
+<li>跃动青春</li>
+<li>我推的孩子</li>
+<li>长瀞 2</li>
+<li>电锯人</li>
+<li>傲娇反派千金莉洁洛特与实况主远藤同学及解说员小林同学</li>
+<li>智酱是女生！</li>
+<li>这个医师超麻烦</li>
+<li>拥有超常技能的异世界流浪美食家</li>
+</ul>
+<h2 id="2023%E5%B9%B44%E6%9C%88">2023年4月</h2>
+<h3 id="%E6%8E%A8%E8%8D%90">推荐</h3>
+<ul>
+<li>U149
+<blockquote>
+<p>唯一真神</p>
+</blockquote>
+</li>
+<li>放学后失眠的你
+<blockquote>
+<p>音乐，人设等各方面都很舒适的纯爱番</p>
+</blockquote>
+</li>
+<li>跃动青春
+<blockquote>
+<p>温暖而又轻松的青春群像校园番</p>
+</blockquote>
+</li>
+<li>我心里危险的东西
+<blockquote>
+<p>适合半夜在床上边看边扭来扭曲姨母笑的纯爱番</p>
+</blockquote>
+</li>
+<li>我推的孩子
+<blockquote>
+<p>不应该抓着设定不放，番剧在音乐、节奏、镜头都是过关的，第一话和赤音回等更是神回，虽然个别地方差强人意，但无伤大雅。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="%E6%AF%94%E8%BE%83%E6%8E%A8%E8%8D%90">比较推荐</h3>
+<ul>
+<li>无神世界
+<blockquote>
+<p>虽然制作很穷，但是经费用的很好，次要东西直接3D，关键的人物和镜头是一点没省。剧情和设定也是有趣，感觉算是黑马了。</p>
+</blockquote>
+</li>
+<li>爆焰
+<blockquote>
+<p>一般，感觉外传没有本作有趣，但也勉强说得过去。</p>
+</blockquote>
+</li>
+<li>祭品公主与兽之王
+<blockquote>
+<p>福瑞纯爱好捏</p>
+</blockquote>
+</li>
+<li>江户前精灵
+<blockquote>
+<p>节奏舒缓，剧情十分温馨的日常轻百番。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="%E4%B8%80%E8%88%AC">一般</h3>
+<ul>
+<li>魔法少女毁灭者
+<blockquote>
+<p>点名批评，如此优质的题材，而且开头一直在谜语，各种捏他也不错，结果有点失望，太平庸了。</p>
+</blockquote>
+</li>
+<li>略</li>
+</ul>
+<h2 id="2023%E5%B9%B41%E6%9C%88">2023年1月</h2>
+<h3 id="%E6%8E%A8%E8%8D%90">推荐</h3>
+<ul>
+<li>拥有超常技能的异世界流浪美食家
+<blockquote>
+<p>本质美食番，适合半夜看，剧情轻松</p>
+</blockquote>
+</li>
+<li>转生王女与天才千金的魔法革命
+<blockquote>
+<p>真正意义上的百合番，适合白河豚，剧情其实比较一般一点，但制作非常精良。</p>
+</blockquote>
+</li>
+<li>别当欧尼酱了！
+<blockquote>
+<p>季度霸权</p>
+</blockquote>
+</li>
+<li>傲娇反派千金莉洁洛特与实况主远藤同学及解说员小林同学
+<blockquote>
+<p>傲娇反而获胜的纯爱番。看得出制作组经费不足但确实在努力了，很喜欢这个题材，剧情可以，有趣好玩。</p>
+</blockquote>
+</li>
+<li>不要欺负我，长瀞同学 2
+<blockquote>
+<p>纯爱番，好玩程度爆杀隔壁邻家天使。这对的玩法很高级，第一季有轻微霸凌成分，无法接受可以直接看第二季。</p>
+</blockquote>
+</li>
+<li>智酱是女生！
+<blockquote>
+<p>纯爱番，有点鬼畜。女主是假小子设定，剧情又好笑又鬼畜。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="%E6%AF%94%E8%BE%83%E6%8E%A8%E8%8D%90">比较推荐</h3>
+<ul>
+<li>英雄王，为了穷尽武道而转生
+<blockquote>
+<p>正常的异世界傲天战斗番，性转百合</p>
+</blockquote>
+</li>
+<li>冰属性男子与无表情女子
+<blockquote>
+<p>比较普通的纯爱</p>
+</blockquote>
+</li>
+<li>全防 2
+<blockquote>
+<p>凤傲天，好看</p>
+</blockquote>
+</li>
+<li>地错 4
+<blockquote>
+<p>地错整个系列都可以看。其实感觉不如看小说</p>
+</blockquote>
+</li>
+<li>HIGH CARD
+<blockquote>
+<p>智斗番，设定不错，剧情尚可</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="%E4%B8%80%E8%88%AC">一般</h3>
+<ul>
+<li>生而为狗，我很幸福
+<blockquote>
+<p>逆天肉番</p>
+</blockquote>
+</li>
+<li>不相信人类的冒险者们好像要去拯救世界
+<blockquote>
+<p>异世界战斗番，剧情一般</p>
+</blockquote>
+</li>
+<li>冰剑的魔术师将要统一世界
+<blockquote>
+<p>制作极其垃圾剧情十分弱智的异世界龙傲天</p>
+</blockquote>
+</li>
+<li>被解雇的暗黑士兵（30多岁）开始了慢生活的第二人生
+<blockquote>
+<p>异世界小龙傲天，纯爱</p>
+</blockquote>
+</li>
+<li>为了养老金去异界存八万金
+<blockquote>
+<p>异世界凤傲天</p>
+</blockquote>
+</li>
+<li>邻家天使
+<blockquote>
+<p>赫赫</p>
+</blockquote>
+</li>
+<li>最强阴阳师的异世界转生记
+<blockquote>
+<p>异世界龙傲天</p>
+</blockquote>
+</li>
+<li>唱歌的大姐姐也想做
+<blockquote>
+<p>肉番</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="2022%E5%B9%B410%E6%9C%88">2022年10月</h2>
+<h3 id="%E6%8E%A8%E8%8D%90">推荐</h3>
+<ul>
+<li>孤独摇滚
+<blockquote>
+<p>唯一真神</p>
+</blockquote>
+</li>
+<li>秋叶原冥途战争
+<blockquote>
+<p>讲述了秋叶原的女仆们塔塔开（物理）的故事，剧情不拖沓，发展还挺快，就是人似的挺快......个人认为本季度第二佳。</p>
+</blockquote>
+</li>
+<li>电锯人
+<blockquote>
+<p>制作不错，可以看看</p>
+</blockquote>
+</li>
+<li>恋爱flops
+<blockquote>
+<p>近年来看到过的最好的后宫番。一定要追到最后。</p>
+</blockquote>
+</li>
+<li>异世界舅舅
+<blockquote>
+<p>好看捏</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="%E6%AF%94%E8%BE%83%E6%8E%A8%E8%8D%90">比较推荐</h3>
+<ul>
+<li>想要成为影之实力者
+<blockquote>
+<p>高质量异世界龙傲天，看主角装逼就对了</p>
+</blockquote>
+</li>
+<li>转生就是剑
+<blockquote>
+<p>异世界战斗番，猫猫可爱捏</p>
+</blockquote>
+</li>
+<li>书虫公主
+<blockquote>
+<p>偏女性向，微逆后宫</p>
+</blockquote>
+</li>
+<li>不道德公会
+<blockquote>
+<p>异世界搞笑战斗肉番，意外地很好看。剧情也不含糊，有一种看素晴的感觉。扣分点是制作穷，经费多点就放在推荐了。</p>
+</blockquote>
+</li>
+<li>宇崎酱想要玩耍！ω
+<blockquote>
+<p>很好玩的纯爱，第二部。</p>
+</blockquote>
+</li>
+<li>4个人各自有着自己的秘密
+<blockquote>
+<p>日常（误）微百合番。设定很新奇，剧情也挺有趣的，居然没什么人看。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="%E4%B8%80%E8%88%AC">一般</h3>
+<ul>
+<li>入间同学入魔了 3
+<blockquote>
+<p>异世界战斗日常，剧情巨拖拉，感觉不如直接看漫画。</p>
+</blockquote>
+</li>
+<li>因为是反派大小姐所以养了魔王
+<blockquote>
+<p>女性向异世界纯爱番，感觉一般。</p>
+</blockquote>
+</li>
+<li>点满农民相关技能后，不知为何就变强了
+<blockquote>
+<p>很普通的异世界农（确实是农）傲天后宫番</p>
+</blockquote>
+</li>
+<li>被开除出勇者队伍的驯兽使，邂逅了最强种猫耳少女
+<blockquote>
+<p>普通异世界龙傲天后宫番</p>
+</blockquote>
+</li>
+<li>夫妇以上，恋人未满
+<blockquote>
+<p>腻了</p>
+</blockquote>
+</li>
+<li>彼得·格里尔的贤者时间 Super Extra
+<blockquote>
+<p>某肉番第二部</p>
+</blockquote>
+</li>
+<li>后宫露营
+<blockquote>
+<p>肉番</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="2022%E5%B9%B47%E6%9C%88">2022年7月</h2>
+<h3 id="%E6%8E%A8%E8%8D%90">推荐</h3>
+<ul>
+<li>异世界舅舅
+<blockquote>
+<p>略</p>
+</blockquote>
+</li>
+<li>契约之吻
+<blockquote>
+<p>吻必秒蒜</p>
+</blockquote>
+</li>
+<li>莉可丽丝
+<blockquote>
+<p>最后有点草率了，不影响看。</p>
+</blockquote>
+</li>
+<li>SHINEPOST
+<blockquote>
+<p>闪耀路标，好看有活的偶像番，因人而异。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="%E6%AF%94%E8%BE%83%E6%8E%A8%E8%8D%90">比较推荐</h3>
+<ul>
+<li>最近雇的女仆有点怪
+<blockquote>
+<p>纯爱，好玩</p>
+</blockquote>
+</li>
+<li>地错4
+<blockquote>
+<p>略</p>
+</blockquote>
+</li>
+<li>金装的维尔梅～濒临堕落的魔法师和最强的灾厄一起冲入魔法世界～
+<blockquote>
+<p>观感稍好的异世界战斗纯爱（后宫）番。op和ed加了点分</p>
+</blockquote>
+</li>
+<li>邪神与厨二病少女X
+<blockquote>
+<p>实在是没钱的，制作组尽力了。夹心酱是日常轻百番，剧情还蛮有趣的</p>
+</blockquote>
+</li>
+<li>彻夜之歌
+<blockquote>
+<p>剧情很好玩，男女主人设也很好玩。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="%E4%B8%80%E8%88%AC">一般</h3>
+<ul>
+<li>黑之召唤士
+<blockquote>
+<p>异世界轻龙傲天番，微后宫，也就那样。</p>
+</blockquote>
+</li>
+<li>转生贤者的异世界生活～获得第二职业并成为世界最强
+<blockquote>
+<p>同上</p>
+</blockquote>
+</li>
+<li>实教 2
+<blockquote>
+<p>也就那样</p>
+</blockquote>
+</li>
+<li>拖油瓶
+<blockquote>
+<p>也就那样</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="2022%E5%B9%B44%E6%9C%88">2022年4月</h2>
+<h3 id="%E6%8E%A8%E8%8D%90">推荐</h3>
+<ul>
+<li>街角魔族 2
+<blockquote>
+<p>街角魔族怎么吹比较好？日常百合番，设定有趣，剧情轻松好玩，对主线的处理是教科书级别的。强烈推荐，白河豚本年度最佳食粮。</p>
+</blockquote>
+</li>
+<li>辉告 3
+<blockquote>
+<p>发挥很稳定，必须看的。</p>
+</blockquote>
+</li>
+<li>夏日重现
+<blockquote>
+<p>众所周知的，好看的，奇幻的，纯爱的。</p>
+</blockquote>
+</li>
+<li>相合之物
+<blockquote>
+<p>日常系养女儿番。很治愈的一个番剧，一果可爱捏。</p>
+</blockquote>
+</li>
+<li>派对浪客诸葛孔明
+<blockquote>
+<p>众所周知的，不必多言，看就完了。</p>
+</blockquote>
+</li>
+<li>测不准的阿波连同学
+<blockquote>
+<p>高质量纯爱番，喜欢三无设定。水赖折我的老婆</p>
+</blockquote>
+</li>
+<li>这个医师超麻烦
+<blockquote>
+<p>剧情十分好玩的异世界番。女主的毒舌设定太有趣了，速看。</p>
+</blockquote>
+</li>
+<li>古见同学有交流障碍症 2
+<blockquote>
+<p>发挥较为稳定，到后期作画有点小崩，不影响我嗑糖。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="%E6%AF%94%E8%BE%83%E6%8E%A8%E8%8D%90">比较推荐</h3>
+<ul>
+<li>RPG不动产
+<blockquote>
+<p>异世界日常百合番，其实没什么亮点，剧情比较平淡。</p>
+</blockquote>
+</li>
+<li>骸骨骑士大人异世界冒险中
+<blockquote>
+<p>异世界战斗番，设定和剧情相对比较有趣，制作还行。</p>
+</blockquote>
+</li>
+<li>约会大作战IV
+<blockquote>
+<p>约战4，给点面子</p>
+</blockquote>
+</li>
+<li>乙女游戏世界对路人角色很不友好
+<blockquote>
+<p>同样也是高质量的异世界龙傲天后宫战斗番（是真的后宫），可以看看原作。</p>
+</blockquote>
+</li>
+<li>理科生坠入情网，故尝试证明 2
+<blockquote>
+<p>说实话其实感觉有点像没活了嗯整，1都看了2总得看看吧</p>
+</blockquote>
+</li>
+<li>式守同学不只可爱而已
+<blockquote>
+<p>还可以的纯爱</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="%E4%B8%80%E8%88%AC">一般</h3>
+<ul>
+<li>朋友游戏
+<blockquote>
+<p>比较烂的智斗</p>
+</blockquote>
+</li>
+<li>盾勇 2
+<blockquote>
+<p>有点看不下去</p>
+</blockquote>
+</li>
+<li>史上最强大魔王转生为村民A
+<blockquote>
+<p>普通异世界龙傲天后宫番</p>
+</blockquote>
+</li>
+<li>社畜小姐想被幽灵幼女治愈
+<blockquote>
+<p>之前一个幼狐的性转版，一般</p>
+</blockquote>
+</li>
+<li>杜鹃的婚约
+<blockquote>
+<p>逆天后宫</p>
+</blockquote>
+</li>
+<li>间谍过家家
+<blockquote>
+<p>还行吧</p>
+</blockquote>
+</li>
+<li>坐在联谊会角落的他是个肉食系
+<blockquote>
+<p>肉番</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="2022%E5%B9%B41%E6%9C%88">2022年1月</h2>
+<h3 id="%E6%8E%A8%E8%8D%90">推荐</h3>
+<ul>
+<li>与变成了异世界美少女的大叔一起冒险
+<blockquote>
+<p>真的好看，优秀的异世界番</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="%E6%AF%94%E8%BE%83%E6%8E%A8%E8%8D%90">比较推荐</h3>
+<ul>
+<li>天才王子的赤字国家重生术
+<blockquote>
+<p>比较优秀的异世界龙傲天智斗纯爱番，剧情设定很不错。制作组比较没经费，但是经费都用在该用的地方了。</p>
+</blockquote>
+</li>
+<li>高木 3
+<blockquote>
+<p>感觉夹在推荐和比较推荐之间，放这里了</p>
+</blockquote>
+</li>
+<li>更衣人偶坠入爱河
+<blockquote>
+<p>纯爱番，个人评价没有网上吹的那么高</p>
+</blockquote>
+</li>
+<li>明日酱的水手服
+<blockquote>
+<p>少女们的日常番，治愈啊，感觉算轻百吧</p>
+</blockquote>
+</li>
+<li>自称贤者弟子的贤者
+<blockquote>
+<p>男主可爱捏</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="%E4%B8%80%E8%88%AC">一般</h3>
+<ul>
+<li>现实主义勇者的王国再建记 2
+<blockquote>
+<p>相对比较能看的异世界番了</p>
+</blockquote>
+</li>
+<li>终末的后宫
+<blockquote>
+<p>逆天肉番</p>
+</blockquote>
+</li>
+<li>失格纹的最强贤者
+<blockquote>
+<p>烂的异世界龙傲天后宫战斗番</p>
+</blockquote>
+</li>
+<li>里亚德录大地
+<blockquote>
+<p>算一般凤傲天吧</p>
+</blockquote>
+</li>
+</ul>
+
+</body>
+</html>
